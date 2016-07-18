@@ -11,7 +11,7 @@
 
 function isPangram(string){
 	var alphabet = "abcdefghijklmnopqrstuvwxyz".split('');
-	var stringArr = string.split(' ').join('').split('');
+	var stringArr = string.toLowerCase().split(' ').join('').split('');
 
 	for (var i of stringArr){
 		for (var j of alphabet){
