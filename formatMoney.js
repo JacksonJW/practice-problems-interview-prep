@@ -39,3 +39,7 @@ function formatMoney(amount){
     }
     return moneyStr;
 }
+
+//After looking at solutions apparently I could have just used
+// return '$' + amount.toFixed(2);
+// to obtain the answer. facepalm.
