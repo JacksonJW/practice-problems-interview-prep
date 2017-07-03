@@ -41,29 +41,3 @@ function mobileKeyboard(str){
         return sum + keystrokes(element);
     }, 0);
 }
-
-
-
-/*
-var keystrokes = function (letter) {
-    var oneKey = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "#", "*"];
-    var twoKey = ["a", "d", "g", "j", "m", "p", "t", "w"];
-    var threeKey = ["b", "e", "h", "k", "n", "q", "u", "x"];
-    var fourKey = ["c", "f", "i", "l", "o", "r", "v", "y"];
-    var fiveKey = ["s", "z"];
-
-    if (oneKey.indexOf(letter) !== -1){
-        return 1;
-    } else if (twoKey.indexOf(letter) !== -1){
-        return 2;
-    } else if (threeKey.indexOf(letter) !== -1){
-        return 3;
-    } else if (fourKey.indexOf(letter) !== -1){
-        return 4;
-    } else if (fiveKey.indexOf(letter) !== -1){
-        return 5;
-    } else {
-        return NaN;
-    }
-}
-*/
