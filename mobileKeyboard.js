@@ -30,7 +30,7 @@ function mobileKeyboard(str){
         2: ["a", "d", "g", "j", "m", "p", "t", "w"], 3: ["b", "e", "h", "k", "n", "q", "u", "x"],
         4: ["c", "f", "i", "l", "o", "r", "v", "y"], 5: ["s", "z"] };
 
-        for (var key in strokeNum){
+    for (var key in strokeNum){
             if (strokeNum[key].indexOf(letter) !== -1){
                 return parseInt(key);
             }
