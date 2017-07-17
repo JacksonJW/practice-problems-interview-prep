@@ -26,23 +26,23 @@ function findRarestPepe(pepes){
 
     for (var i = 0; i < pepes.length; i++){
         if (isRarePepeObj[pepes[i]] === undefined){
-            isRarePepeObj[pepes[i]] = 0;
+            isRarePepeObj[pepes[i]] = 1;
         } else {
             isRarePepeObj[pepes[i]] += 1;
         }
     }
 
-    for (var rarePepe in isRarePepeObj){
+    for (let rarePepe in isRarePepeObj){
         lowestNumberOfPepes = isRarePepeObj[rarePepe];
     }
 
-    for (var rarePepe in isRarePepeObj){
+    for (let rarePepe in isRarePepeObj){
         if (isRarePepeObj[rarePepe] < lowestNumberOfPepes){
             lowestNumberOfPepes = isRarePepeObj[rarePepe];
         }
     }
 
-    for (var rarePepe in isRarePepeObj){
+    for (let rarePepe in isRarePepeObj){
         if (isRarePepeObj[rarePepe] === lowestNumberOfPepes){
             rarePepeArr.push(rarePepe);
         }
@@ -50,7 +50,7 @@ function findRarestPepe(pepes){
 
     rarePepeArr.sort();
 
-    if (rarePepeArr.length >= 5 || lowestNumberOfPepes >= 5){
+    if (lowestNumberOfPepes >= 5){
         return "No rare pepes!";
     } else if (rarePepeArr.length === 1){
         rarePepeArr = rarePepeArr.join('');
