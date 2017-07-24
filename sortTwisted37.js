@@ -24,16 +24,16 @@ You should not modify the input array!
 */
 
 function sortTwisted37(array) {
-    var str = array.join(', ');
-    var newArr = flip3sAnd7s(str).split(', ');
+    var newArr = flip3sAnd7s(array);
     newArr.sort( function (a, b) { return a-b; } );
-    var resultStrArr = flip3sAnd7s(newArr.join(', ')).split(', ');
+    var resultStrArr = flip3sAnd7s(newArr);
     return resultStrArr.map(function (str){
         return parseInt(str);
     })
 }
 
-function flip3sAnd7s(str){
+function flip3sAnd7s(arr){
+    var str = arr.join(', ');
     var newStr = "";
     for (var i = 0; i < str.length; i++){
         if (str.charAt(i) === "7"){
@@ -44,5 +44,5 @@ function flip3sAnd7s(str){
             newStr += str.charAt(i);
         }
     }
-    return newStr;
+    return newStr.split(', ');
 }
