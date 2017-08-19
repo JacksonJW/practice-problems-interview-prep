@@ -27,11 +27,9 @@ The middle character(s) of the word represented as a string.
 */
 
 function getMiddle(s){
-    var resultStr = "";
     if (s.length % 2 === 0){
-        resultStr += s.charAt((s.length/2)-1) + s.charAt(s.length/2);
+        return "" + s.charAt((s.length/2)-1) + s.charAt(s.length/2);
     } else {
-        resultStr = s.charAt(Math.floor(s.length/2));
+        return s.charAt(Math.floor(s.length/2));
     }
-    return resultStr;
 }
