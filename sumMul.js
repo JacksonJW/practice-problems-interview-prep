@@ -18,9 +18,14 @@ sumMul(4,-7)   should return INVALID
 */
 
 function sumMul(n,m){
-    var resultSum = n;
-    while (n < m){
-        resultSum += n + n;
-        n = n + n;
+    if (n >= m){
+        return 'INVALID';
     }
+    var multiple = n;
+    var resultSum = 0;
+    while (multiple < m){
+        resultSum += multiple;
+        multiple += n;
+    }
+    return resultSum;
 }
