@@ -15,18 +15,17 @@ accum("cwAt");
 */
 
 function accum(s) {
-    var resultArr = [];
-    var resultStr = "";
-    for (var i = 0; i < s.length; i++){
-        resultStr = "";
-        for (var j = 0; j <= i; j++){
-            if (j === 0){
-                resultStr += s.charAt(i).toUpperCase();
-            } else {
-                resultStr += s.charAt(i).toLowerCase();
-            }
+    return s.split('').map(function(currentValue, index){
+      let j = 0;
+      let value = '';
+      while (j <= index){
+        if (j === 0){
+          value += currentValue.toUpperCase();
+        } else{
+          value += currentValue.toLowerCase();
         }
-        resultArr.push(resultStr);
-    }
-    return resultArr.join("-");
+        j++;
+      }
+      return value;
+    }).join('-');
 }
