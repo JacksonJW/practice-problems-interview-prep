@@ -1,0 +1,19 @@
+/*
+A function is a block of code that takes an
+input and produces an output. In this example,
+boolean_to_string is a function whose input is
+either true or false, and whose output is the
+string representation of the input, either
+"true" or "false".
+
+A common idea we often want to represent in
+code is the concept of true and false. A
+variable that can either be true or false is
+called a boolean variable. In this example, the
+input to boolean_to_string (represented by the
+variable b) is a boolean.
+*/
+
+function booleanToString(b){
+  return b ? "true" : "false";
+}
