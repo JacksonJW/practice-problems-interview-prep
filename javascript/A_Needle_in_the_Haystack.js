@@ -2,7 +2,7 @@
 // haystack?
 
 // Write a function findNeedle()
-// that takes an array full of 
+// that takes an array full of
 // junk but containing one "needle"
 
 // After your function finds the
@@ -10,25 +10,26 @@
 // message (as a string) that
 // says:
 
-// "found the needle at 
+// "found the needle at
 // position " plus the index it
 // found the needle
 
 // So
 
-// findNeedle(['hay', 'junk', 
+// findNeedle(['hay', 'junk',
 // 'hay', 'hay', 'moreJunk',
 //  'needle', 'randomJunk'])
 // should return
 
-// 'found the needle at 
+// 'found the needle at
 // position 5'
 
 function findNeedle(haystack) {
-  // your code here
-  for (var item of haystack){
-    if (item === "needle") {
-      return "found the needle at position " + haystack.indexOf(item);
-    }
-  }
+  let result = "";
+  haystack.forEach((element, index)=>{
+      if (element === "needle"){
+          result = "found the needle at position " + index;
+      }
+  });
+  return result;
 }
