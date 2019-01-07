@@ -11,7 +11,6 @@ def reverse(self, x):
     :type x: int
     :rtype: int
     """
-    result = 0
 
     if str(x)[0] == '-':
         result = int("-" + str(x)[:0:-1])
