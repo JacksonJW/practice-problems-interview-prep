@@ -1,3 +1,10 @@
+# Count number of occurrences(or frequency) in a sorted array
+# Given a sorted array arr[] and a number x, write a function
+# that counts the occurrences of x in arr[].
+
+# Expected time complexity is O(Logn)
+
+
 def find_frequency(arr, num):
     index = binary_search(arr, 0, len(arr)-1, num)
     return count_occurrences_left_and_right(index, arr, num)
