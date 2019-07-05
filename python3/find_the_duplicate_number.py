@@ -30,7 +30,6 @@ def findDuplicate1(nums):
 
 
 # O(n) worst case time complexity most optimal solution (tortoise and hare algorithm)
-# -> I didn't get this will study later
 def findDuplicate2(nums):
     tortoise = nums[0]
     hare = nums[0]
