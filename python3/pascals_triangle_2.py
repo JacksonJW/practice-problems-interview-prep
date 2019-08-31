@@ -35,7 +35,7 @@ class Solution:
         if rowIndex == 0:
             return [1]
         result = [1, 1]
-        for i in range(1, rowIndex):
+        for _ in range(1, rowIndex):
             current_row = []
             current_row.append(1)
             for j in range(len(result)-1):
