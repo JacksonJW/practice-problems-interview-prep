@@ -57,8 +57,8 @@ class Solution:
 
 def main():
     s = Solution()
-    print("Expected result is <EXPECTED_RESULT> and the Actual result is: " +
-          str('<ACTUAL_RESULT>'))
+    print("Expected result is [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7] and the Actual result is: " +
+          str(s.spiralOrder([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])))
 
 
 if __name__ == "__main__":
