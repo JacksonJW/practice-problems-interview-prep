@@ -23,13 +23,12 @@ However, at the beginning of time point 2, Teemo attacks Ashe again who is alrea
 Since the poisoned status won't add up together, though the second poisoning attack will still work at time point 2, it will stop at the end of time point 3. 
 So you finally need to output 3.
  
-
 Note:
 
 You may assume the length of given time series array won't exceed 10000.
 You may assume the numbers in the Teemo's attacking time series and his poisoning time duration per attacking are non-negative integers, which won't exceed 10,000,000.
  
-
+ 
 Algorithm/DS used: Merge Intervals
 
 O(n) worst case time where n is the lenth of input 'timeSeries'
