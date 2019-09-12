@@ -39,11 +39,6 @@ O(1) worst case space
 """
 
 
-"""
-Replace class 'Solution' with your Leetcode solution below.
-"""
-
-
 class Solution:
     def findPoisonedDuration(self, timeSeries: List[int], duration: int) -> int:
         total_time_poisoned = 0
