@@ -32,11 +32,15 @@ import collections
 from typing import List
 
 
+import collections
+from typing import List
+
+
 class Solution:
-    def __init__(self):
-        self.visited = set()
 
     def numIslands(self, grid: List[List[str]]) -> int:
+        if not grid:
+            return 0
         count = 0
         m = len(grid)
         n = len(grid[0])
@@ -67,7 +71,7 @@ class Solution:
             if i_pos+1 < m and (i_pos+1, j_pos) not in visited and grid[i_pos+1][j_pos] == '1':
                 q.append((i_pos+1, j_pos))
                 visited.add((i_pos+1, j_pos))
-            if 0 <= j_pos-1 and (i_pos, j_pos-1) not in visited and grid[i_pos][j_pos] == '1':
+            if 0 <= j_pos-1 and (i_pos, j_pos-1) not in visited and grid[i_pos][j_pos-1] == '1':
                 q.append((i_pos, j_pos-1))
                 visited.add((i_pos, j_pos-1))
 
