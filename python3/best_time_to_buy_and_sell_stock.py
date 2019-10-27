@@ -30,18 +30,15 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        previous_day_price = prices[0]
-        prices[0] = 0
-        for i in range(1, len(prices)):
-            current_day_price = prices[i]
-            prices[i] = (current_day_price - previous_day_price) + prices[i-1]
-            previous_day_price = current_day_price
-        price_to_buy = min(prices)
-        day_to_buy = prices.index(price_to_buy)
-        prices_to_sell = prices[day_to_buy+1:]
+        maxprofit = 0
+        minprice = float('inf')
+        for i in range(len(prices)):
+            if prices[i] < minprice:
+                minprice = prices[i]
+            elif prices[i] - minprice > maxprofit:
+                maxprofit = prices[i] - minprice
 
-        if prices_to_sell and max(prices_to_sell) > price_to_buy:
-            return max(prices_to_sell) - price_to_buy
+        return maxprofit
 
         return 0
 
