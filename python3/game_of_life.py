@@ -42,7 +42,7 @@ O(m*n) worst case time where m is the length of the row and n is the length of t
 O(m*n) worst case space where m is the length of the row and n is the length of the column of the 2d array input
 
 """
-from typing import List, NamedTuple
+from typing import List
 import collections
 
 
@@ -65,8 +65,8 @@ class Solution:
 
         self.board = board
 
-    def findNextState(self, board: List[List[NamedTuple]], i: int, j: int) -> int:
-        def count_current_surrounding_1s(board: List[List[NamedTuple]], i: int, j: int) -> int:
+    def findNextState(self, board: List[List[List[int]]], i: int, j: int) -> int:
+        def count_current_surrounding_1s(board: List[List[List[int]]], i: int, j: int) -> int:
             result = 0
             if i - 1 >= 0:
                 result += board[i-1][j][0]
