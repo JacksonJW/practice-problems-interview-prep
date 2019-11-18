@@ -30,12 +30,14 @@ class Solution:
             return []
         result = []
         i = 0
+        intervals.sort()
         while i < len(intervals):
             current_merge = intervals[i]
             j = i + 1
             while j < len(intervals):
                 if intervals[j][0] <= current_merge[1]:
-                    current_merge = [current_merge[0], intervals[j][1]]
+                    new_tail_value = max(intervals[j][1], current_merge[1])
+                    current_merge = [current_merge[0], new_tail_value]
                     j += 1
                 else:
                     break
