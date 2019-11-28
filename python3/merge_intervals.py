@@ -30,7 +30,7 @@ class Solution:
             return []
         result = []
         i = 0
-        intervals.sort()
+        intervals.sort(key=lambda s: s[0])
         while i < len(intervals):
             current_merge = intervals[i]
             j = i + 1
