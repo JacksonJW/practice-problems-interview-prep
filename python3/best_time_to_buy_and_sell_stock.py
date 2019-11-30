@@ -30,17 +30,14 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        maxprofit = 0
-        minprice = float('inf')
-        for i in range(len(prices)):
-            if prices[i] < minprice:
-                minprice = prices[i]
-            elif prices[i] - minprice > maxprofit:
-                maxprofit = prices[i] - minprice
-
-        return maxprofit
-
-        return 0
+        max_profit = 0
+        min_price = float('inf')
+        for price in prices:
+            if price < min_price:
+                min_price = price
+            elif price - min_price > max_profit:
+                max_profit = price - min_price
+        return max_profit
 
 
 def test_solution():
