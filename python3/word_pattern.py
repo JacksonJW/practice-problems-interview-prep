@@ -31,11 +31,11 @@ s contains only lower-case English letters and spaces ' '.
 s does not contain any leading or trailing spaces.
 All the words in s are separated by a single space.
 
-Algorithm/DS used: <ALGORITHM USED/DS USED>
+Algorithm/DS used: Hashmap. Iterate through splitted letters and words to see if in hashmap.
 
-<AVERAGE TIME COMPLEXITY> worst case time
+O(N) worst case time where N is the number of words in s or the length of pattern
 
-<AVERAGE SPACE COMPLEXITY> worst case space
+O(N) worst case space where N is the number of words in s or the length of pattern
 
 """
 
