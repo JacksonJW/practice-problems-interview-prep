@@ -20,9 +20,9 @@ All given inputs are in lowercase letters a-z.
 
 Algorithm/DS used: Three pointers iteration
 
-O(n) worst case time
+O(N*M) worst case time where N is the length of strs and M is the min length of each str in strs
 
-O(m) worst case space where m is the length of the longestCOmmonPrefix
+O(P) worst case space where P is the length of the longestCOmmonPrefix
 
 """
 from typing import List
@@ -30,26 +30,19 @@ from typing import List
 
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        if not strs or not all(strs):
-            return ""
-        current_index = 0
+        if len(strs) == 1:
+            return strs[0]
         result = ""
-        smallest_str_len = min([len(s) for s in strs])
-
-        while current_index < smallest_str_len:
-            similar_letter = ""
-            is_similar = True
-            for s in strs:
-                if not similar_letter:
-                    similar_letter = s[current_index]
-                elif s[current_index] != similar_letter:
-                    is_similar = False
-                    break
-            if not is_similar:
-                break
-            else:
-                result += similar_letter
-                current_index += 1
+        min_length = float('inf')
+        for s in strs:
+            if len(s) < min_length:
+                min_length = len(s)
+        model = strs[0]
+        for j in range(min_length):
+            for i in range(1, len(strs)):
+                if strs[i][j] != model[j]:
+                    return result
+            result = result + model[j]
         return result
 
 
