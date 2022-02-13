@@ -16,6 +16,7 @@ O(n + m) worst case time where n is the size of the first list node and m is the
 O(n+m) worst case STACK space where n is the size of first list node and m is the size of the second list node
 
 """
+from typing import Optional
 
 
 class ListNode:
@@ -25,23 +26,31 @@ class ListNode:
 
 
 class Solution:
-    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        if l1 is None and l2 is None:
-            return None
-
-        if l1 is None:
-            l2.next = self.mergeTwoLists(l1, l2.next)
-            return l2
-        elif l2 is None:
-            l1.next = self.mergeTwoLists(l1.next, l2)
-            return l1
-        else:
-            if l1.val <= l2.val:
-                l1.next = self.mergeTwoLists(l1.next, l2)
-                return l1
+    def interleave_sorted(self, list1, list2):
+        p1, p2 = list1, list2
+        while p1 is not None and p2 is not None:
+            if p1.next is None or p2.val <= p1.next.val:
+                new_p1 = p1.next
+                p1.next = p2
+                p1 = new_p1
+                p1, p2, = p2, p1
             else:
-                l2.next = self.mergeTwoLists(l1, l2.next)
-                return l2
+                p1 = p1.next
+        return list1
+
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        if list1 is None and list2 is None:
+            return None
+        elif list1 is None:
+            return list2
+        elif list2 is None:
+            return list1
+        elif list1.val <= list2.val:
+            list1 = self.interleave_sorted(list1, list2)
+            return list1
+        else:
+            list2 = self.interleave_sorted(list2, list1)
+            return list2
 
 
 def test_solution():
