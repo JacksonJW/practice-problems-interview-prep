@@ -22,27 +22,25 @@ Explanation:
 
 Algorithm/DS used: Cycle detection - hash set.
 
-O(m*n) worst case time where n is the max number of digits of 'n' and 'm' is the number of computations until a cycle is detected.
+O(c*n) worst case time where n is the max number of digits of 'n'
+and 'c' is the number of computations until a cycle is detected.
 
-O(m) worst case space where 'm' is the number of computations until a cycle is detected.
+O(c) worst case space where 'c' is the number of computations
+until a cycle is detected.
 
 """
 
 
 class Solution:
     def isHappy(self, n: int) -> bool:
-        if n < 0:
-            return False
-        if n == 1:
-            return True
-        seen = set()
-        while n != 1:
-            n = sum([int(c)**2 for c in str(n)])
-            if n in seen:
-                return False
-            else:
-                seen.add(n)
-        return True
+        visited, new_n = set(), n
+        while new_n != 1 and new_n not in visited:
+            visited.add(new_n)
+            s = 0
+            for digit in str(new_n):
+                s += int(digit) ** 2
+            new_n = s
+        return new_n == 1
 
 
 def test_solution():
@@ -50,6 +48,7 @@ def test_solution():
     print("Expected result from input 19 is True and the Actual result is: " +
           str(s.isHappy(19)))
     assert s.isHappy(19) == True
+    assert s.isHappy(4) == False
 
 
 if __name__ == "__main__":
