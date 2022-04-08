@@ -1,4 +1,3 @@
-import collections
 """
 Leetcode #146. LRU Cache
 
@@ -28,34 +27,48 @@ cache.get(4);       // returns 4
 
 Algorithm/DS used: Ordered dictionary
 
-O(1) worst case time (put) and (get)
+O(G+P) worst case time for get and put where G is the number of times get/put is called.
 
-O(n) worst case space where n is the amount of items inserted in the cache.
+O(N) worst case space where N is the amount of items inserted in the cache.
 
 """
+
+
+from collections import deque
 
 
 class LRUCache:
 
     def __init__(self, capacity: int):
-        self.cache = collections.OrderedDict()
         self.capacity = capacity
+        self.index = 0
+        self.order = deque()
+        self.table = {}
 
     def get(self, key: int) -> int:
-        if key not in self.cache:
+        if key not in self.table:
             return -1
-        self.cache.move_to_end(key, last=True)
-        return self.cache[key]
+        if key in self.table:
+            self.table[key][1] = self.index
+            self.order.append((key, self.index))
+        while self.order[0][0] == key and self.order[0][1] < self.index:
+            self.order.popleft()
+        self.index += 1
+        return self.table[key][0]
 
     def put(self, key: int, value: int) -> None:
-        if key in self.cache:
-            self.cache[key] = value
-            self.cache.move_to_end(key, last=True)
-        elif len(self.cache) == self.capacity:
-            self.cache.popitem(last=False)
-            self.cache[key] = value
-        else:
-            self.cache[key] = value
+        if key in self.table:
+            self.table[key][0] = value
+            self.table[key][1] = self.index
+            self.order.append((key, self.index))
+        elif key not in self.table:
+            self.table[key] = [value, self.index]
+            self.order.append((key, self.index))
+            if len(self.table) > self.capacity:
+                while self.order[0][0] not in self.table or self.order[0][1] != self.table[self.order[0][0]][1]:
+                    self.order.popleft()
+                self.table.pop(self.order[0][0])
+        self.index += 1
 
 
 def test_solution():
