@@ -38,6 +38,7 @@ Input: products = ["havana"], searchWord = "havana"
 Output: [["havana"],["havana"],["havana"],["havana"],["havana"],
 ["havana"]]
 
+
 Example 3:
 Input: products = ["bags","baggage","banner","box","cloths"],
 searchWord = "bags"
