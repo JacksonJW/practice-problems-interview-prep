@@ -42,20 +42,14 @@ Algorithm/DS used: Reverse iteration using split
 
 O(N) worst case time where N is the number of words in s
 
-O(N) worst case space where N is the number of words in s
+O(1) worst case space
 
 """
 
 
 class Solution:
     def reverseWords(self, s: str) -> str:
-        result = ''
-        l = list(reversed(s.split()))
-        for i, word in enumerate(l):
-            result += word
-            if i < len(l) - 1:
-                result += ' '
-        return result
+        return ' '.join(reversed(s.split()))
 
 
 def test_solution():
