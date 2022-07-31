@@ -27,7 +27,8 @@ The number of nodes in the tree is in the range [0, 100].
 Algorithm(s)/DS used: queue for breadth-first traversal and hash table for
 keeping track of which nodes go to different columns
 
-O(N) worst case time where N is the number of nodes in the tree
+O(N*log(N)) worst case time where N is the number of nodes in the tree
+because of sorting
 
 O(N) worst case space where N is the number of nodes in the tree who's values 
 help populate the hash table
